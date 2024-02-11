@@ -6,6 +6,9 @@ export default function Home() {
   const [count, setCount] = useState(1);
 
   useEffect(() => {
+    const audio = new Audio('./bg.mp3');
+    audio.loop = true;
+    audio.play();
     const interval = setInterval(() => {
       // Increment count and loop back to 1 after reaching 3
       setCount((prevCount) => (prevCount % 3) + 1);
@@ -15,17 +18,7 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []); // Empty dependency array ensures the effect runs only once on mount
 
-  useEffect(() => {
-    const audio = new Audio('./bg.mp3');
-    audio.loop = true;
-    audio.play();
 
-    // Cleanup function to stop the audio when component unmounts
-    return () => {
-      audio.pause();
-      audio.currentTime = 0;
-    };
-  }, []);
   let content;
 
   switch (count) {
