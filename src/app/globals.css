@@ -21,3 +21,21 @@ body {
     text-wrap: balance;
   }
 }
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+    /* Start rotation from 0 degrees */
+  }
+
+  100% {
+    transform: rotate(360deg);
+    /* Rotate to 360 degrees */
+  }
+}
+
+/* Apply the animation to an element */
+.rotating-element {
+  animation: rotate 5s linear infinite;
+  /* Rotate the element continuously over 3 seconds */
+}
